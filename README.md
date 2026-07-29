@@ -12,5 +12,5 @@ Una librería ligera y eficiente en TypeScript para obtener y procesar transcrip
 ## Instalación
 
 ```bash
-pnpm add youtube-transcript-plus
+pnpm add @santiagogoncalvez1/youtube-transcript-plus
 ```
