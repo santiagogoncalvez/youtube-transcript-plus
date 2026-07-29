@@ -1,5 +1,5 @@
 {
-   "name": "youtube-transcript-plus",
+   "name": "@santiagogoncalvez1/youtube-transcript-plus",
    "version": "1.0.0",
    "description": "",
    "main": "dist/index.cjs",
