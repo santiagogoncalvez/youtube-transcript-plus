@@ -14,3 +14,6 @@ export type {
 // Errors
 export { YouTubeMetadataError } from "./errors/youtube-metadata";
 export type { YouTubeErrorCode } from "./errors/youtube-metadata";
+
+export { YouTubeTranscriptError } from "./errors/youtube-transcript";
+export type { YouTubeTranscriptErrorCode } from "./errors/youtube-transcript";
