@@ -10,3 +10,7 @@ export type {
    YouTubeOEmbedResponse,
    YouTubeVideoMetadata,
 } from "./types/youtube";
+
+// Errors
+export { YouTubeMetadataError } from "./errors/youtube-metadata";
+export type { YouTubeErrorCode } from "./errors/youtube-metadata";

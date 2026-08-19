@@ -1,3 +1,4 @@
+import { YouTubeMetadataError } from "../errors/youtube-metadata";
 import { parseYouTubeMetadata } from "../parsers/youtube-metadata";
 
 import type {
@@ -22,21 +23,41 @@ export async function getYouTubeMetadata(
       const response = await fetch(endpoint);
 
       if (!response.ok) {
-         if (response.status === 404) {
-            throw new Error("Video not found or has been deleted.");
+         if (response.status === 404 || response.status === 400) {
+            throw new YouTubeMetadataError(
+               "VIDEO_NOT_FOUND",
+               "Video not found or deleted.",
+               response.status,
+            );
          }
          if (response.status === 401 || response.status === 403) {
-            throw new Error("The video is private.");
+            throw new YouTubeMetadataError(
+               "VIDEO_PRIVATE",
+               "The video is private.",
+               response.status,
+            );
          }
-         throw new Error(`YouTube error (${response.status})`);
+         throw new YouTubeMetadataError(
+            "API_ERROR",
+            `YouTube error (${response.status})`,
+            response.status,
+         );
       }
 
       const data: YouTubeOEmbedResponse = await response.json();
 
       return parseYouTubeMetadata(data);
    } catch (error) {
-      // Here you catch errors thrown above, as well as fetch() or json() failures
+      // Si el error ya es nuestro (lo lanzamos arriba), lo dejamos pasar tal cual
+      if (error instanceof YouTubeMetadataError) {
+         throw error;
+      }
+
+      // Si es un error de fetch() o json() que rompió el código, lo empaquetamos como NETWORK_ERROR
       console.error("Failed to fetch YouTube metadata:", error);
-      throw error;
+      throw new YouTubeMetadataError(
+         "NETWORK_ERROR",
+         error instanceof Error ? error.message : "Unknown network error",
+      );
    }
 }

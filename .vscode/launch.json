@@ -11,7 +11,7 @@
            "name": "Launch Program",
            "skipFiles": ["<node_internals>/**"],
            "runtimeArgs": ["--import", "tsx"],
-           "program": "${workspaceFolder}\\scripts\\transcript.ts",
+           "program": "${workspaceFolder}\\scripts\\youtube.ts",
            "outFiles": ["${workspaceFolder}/**/*.js"]
         }
     ]
