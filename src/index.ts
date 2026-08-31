@@ -1,4 +1,4 @@
-export { getYoutubeData } from "./services/youtube-summary";
+export { getYoutubeData } from "./services/youtube-data";
 
 export { getTranscript } from "./services/transcript";
 

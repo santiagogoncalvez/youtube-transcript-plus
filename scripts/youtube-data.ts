@@ -1,4 +1,4 @@
-import { getYoutubeData } from "../src/services/youtube-summary";
+import { getYoutubeData } from "../src/services/youtube-data";
 
 const youtubeId = "dQw4w9WgXcQ";
 

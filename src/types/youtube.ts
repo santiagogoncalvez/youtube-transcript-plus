@@ -24,4 +24,5 @@ export interface YouTubeVideoMetadata {
    author: string;
    authorUrl: string;
    thumbnailUrl: string;
+   duration: number;
 }
