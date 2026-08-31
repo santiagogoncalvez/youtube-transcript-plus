@@ -20,13 +20,10 @@ export async function getYoutubeData(videoId: string): Promise<TranscriptData> {
 
    return {
       title: metadata.title,
-
       videoId,
-
       thumbnailUrl: metadata.thumbnailUrl,
-
       fullTranscript,
-
       transcriptWithTimeCodes,
+      duration: metadata.duration,
    };
 }

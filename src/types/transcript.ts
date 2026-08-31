@@ -9,8 +9,7 @@ export interface TranscriptData {
    title: string;
    videoId: string;
    thumbnailUrl?: string;
-
    fullTranscript: string;
-
    transcriptWithTimeCodes: TranscriptSegment[];
+   duration: number;
 }
